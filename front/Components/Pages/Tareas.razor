@@ -1,0 +1,90 @@
+﻿@page "/tareas/{UsuarioId:int}"
+
+<h3>Listado de Tareas del Usuario @UsuarioId</h3>
+
+<button style="float:right" class="btn btn-success" @onclick="Show">Crear Tarea</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tarea in tareas)
+        {
+            <tr>
+                <td>@tarea.Titulo - Vence: @tarea.FechaVencimiento.ToString("dd/MM/yyyy")</td>                
+                <td>
+                    @if (!tarea.Finalizado)
+                    {
+                        <button class="btn btn-primary" @onclick="() => MarcarCompletada(tarea)">Marcar Completada</button>
+                        
+                    }
+                    &nbsp;<button class="btn btn-info" @onclick="() => FindTarea(tarea.Id)">Modificar</button> &nbsp;
+                    <button class="btn btn-danger" @onclick="() => EliminarTarea(tarea.Id)">Eliminar</button>
+                </td>
+            </tr>
+        }
+        @if (tareas.Count == 0)
+        {
+            <tr>No se encontraron registros.</tr>
+        }
+    </tbody>
+</table>
+
+
+@if (isVisible)
+{
+    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;" aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario Tareas</h5>
+                    <button type="button" class="close" @onclick="Cancel" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" @bind="nuevaTarea.Finalizado" />
+
+                        <div class="form-group">
+                            <label class="col-form-label">Título:</label>
+                            <input type="text" class="form-control" @bind="nuevaTarea.Titulo" placeholder="Título">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" @bind="nuevaTarea.Descripcion" placeholder="Descripción"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Prioridades:</label>
+                            <select @bind="nuevaTarea.IdPrioridad" class="form-control">
+                                <option value="0">Selecciona una prioridad</option>
+                                @foreach (var prioridad in prioridades)
+                                {
+                                    <option value="@prioridad.Id">@prioridad.Nombre</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Tag:</label>
+                            <input type="text" class="form-control" @bind="nuevaTarea.Tags" placeholder="Tag">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Fecha de Vencimiento:</label>
+                            <input type="date" class="form-control" @bind="nuevaTarea.FechaVencimiento" placeholder="dd/mm/yy">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancelar</button>
+                    <button @onclick="isnew ? CrearTarea : ModificarTarea" type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}

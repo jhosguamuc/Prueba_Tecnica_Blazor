@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Jose David Muñoz\\source\\repos\\Prueba_Tecnica_Blazor\\front\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\front.bundle.scp.css",
+      "PackagePath": "staticwebassets\\front.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Jose David Muñoz\\source\\repos\\Prueba_Tecnica_Blazor\\front\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Jose David Muñoz\\source\\repos\\Prueba_Tecnica_Blazor\\front\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Jose David Muñoz\\source\\repos\\Prueba_Tecnica_Blazor\\front\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Jose David Muñoz\\source\\repos\\Prueba_Tecnica_Blazor\\front\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.front.props",
+      "PackagePath": "build\\front.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.front.props",
+      "PackagePath": "buildMultiTargeting\\front.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.front.props",
+      "PackagePath": "buildTransitive\\front.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.front.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
